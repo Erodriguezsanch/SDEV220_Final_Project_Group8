@@ -1,3 +1,178 @@
-.title {
-    color: blue;
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Helper Styles */
+.contain {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Nav Styles */
+nav {
+    position: absolute;
+    width: 100dvw;
+    background-color: white;
+    z-index: 20;
+}
+
+.nav_container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 50px;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.nav_titleContainer {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    height: 100%;
+}
+
+.nav_logo {
+    height: 80%;
+    border-radius: 50%;
+}
+
+.nav_links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 100%;
+
+    list-style: none;
+}
+
+.nav_link {
+    color: black;
+    text-decoration: none;
+    background-color: #e1e1e1;
+    padding: .5rem 2rem;
+    border-radius: 10px;
+}
+
+.nav_register {
+    background-color: #006648 !important;
+    color: white !important;
+}
+
+.nav_hamburger {
+    display: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.nav_closeIcon {
+  display: none;
+}
+
+.nav_mobileLinks {
+    position: fixed;
+    top: 50px;
+    z-index: 10;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-100%);
+    transition: transform 200ms;
+}
+
+.nav_mobileMenuOpen {
+    display: flex;
+    transform: translateY(0)
+}
+
+.nav_mobileLink {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding: .5rem 0;
+    background-color: #e1e1e1;
+}
+
+.nav_contentBreak {
+    display: block;
+    height: 50px;
+}
+
+@media (max-width: 72rem) {
+    .nav_container {
+        margin: 0;
+    }
+}
+
+@media (max-width: 48rem) {
+    .nav_hamburger {
+        display: block;
+    }
+
+    .nav_item {
+        display: none;
+    }
+}
+
+/* Home Page */
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+
+    padding: 1rem;
+    margin-top: 4rem;
+    background-color: #e1e1e1;
+    border-radius: 10px;
+}
+
+.loginForm h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    padding-bottom: .5rem;
+}
+
+.loginForm input {
+    padding: .2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.loginForm button {
+    padding: .2rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    background-color: #006648;
+    color: white;
+}
+
+.homeTemp {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    text-align: center;
 }
