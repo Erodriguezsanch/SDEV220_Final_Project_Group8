@@ -5,19 +5,54 @@
     <%- include('./components/nav.ejs') %>
     
     <div class="contain">
-        <div class="center">
-            <form action="" method="POST" class="loginForm">
-                <h2>Login</h2>
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Password" name="password">
-                <button type="submit">Login</button>
-            </form>
-            <div class="homeTemp">
-                <p>Temporary:</p>
-                <a href="/teachers">Teachers Dashboard</a>
-                <a href="/students">Students Dashboard</a>
+
+        <header class="center home_header">
+            <h1>Ivy Tech Community College</h1>
+            <p>We innovate, iterate, and transform</p>
+        </header>
+
+
+        <section class="center home_about">
+            <h1>About Ivy Tech</h1>
+            <p>At Ivy Tech we have the resources, focus, and flexibility to meet students where they are, then walk with them to where they're going. </p>
+            <p>No two students’ paths to the future look the same. We get that. So, we listen. We support. We guide. With 70+ academic programs and classes in 75+ communities in Indiana—plus online—you’ll be able to find your fit for the next step in your career. </p>
+        </section>
+
+        <hr class="home_break">
+
+        <section class="center home_reviews">
+            <h1>Don't take it from us</h1>
+            <p>These are the reviews from real students.</p>
+            <div class="reviews_container">
+                <div class="review center">
+                    <i class="material-icons">star</i>
+                    <p>The campus itself is stunning, with state-of-
+                        the-art facilities, modern libraries, and
+                        innovative study spaces that promote
+                        collaboration and creativity.</p>
+                    <span>- Young Wani</span>
+                </div>
+                <div class="review center">
+                    <i class="material-icons">star</i>
+                    <p>Everytime I have dealt with Ivy Tech they have been friendly and have answered all of my questions.</p>
+                    <span>- Jamie Strong</span>
+                </div>
+                <div class="review center">
+                    <i class="material-icons">star</i>
+                    <p>Great school, cheaper than university and credits transfer.</p>
+                    <span>- Ivory Starr</span>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="center home_joinSection">
+            <h1>Ready to Join?</h1>
+            <p>All of our programs are designed to lead you toward a great career. Find the program meant to advance you toward your career—quickly and affordably.</p>
+            <a href="/register">Register</a>
+        </section>
+
     </div>
+
+    <%- include('./components/footer.ejs') %>
 </body>
 </html>

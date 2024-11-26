@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./components/head.ejs') %>
+<body>
+    <%- include('./components/nav.ejs') %>
+    
+    <div class="contain">
+        <div class="center">
+            <form action="" method="POST" class="loginForm">
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password" name="password">
+                <button type="submit">Login</button>
+            </form>
+            <div class="homeTemp">
+                <p>Temporary:</p>
+                <a href="/teachers">Teachers Dashboard</a>
+                <a href="/students">Students Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
