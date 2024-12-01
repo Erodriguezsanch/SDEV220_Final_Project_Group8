@@ -5,8 +5,25 @@
     <%- include('./components/nav.ejs') %>
     
     <div class="contain">
-        <div class="center">
-            <h1>Student Dashboard</h1>
+        <h1 class="dashboard_title">Student Dashboard</h1>
+        <div class="dashboard_header">
+            <h2 class="header_title">Courses</h2>
+        </div>
+        <div class="dashboard_courseContainer">
+            <% if (courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <div class="courseContainer_course">
+                        <h3 class="course_title"><%= course.title %></h3>
+                        <div class="course_details">
+                            <p><span class="bold">Code:</span> <%= course.code %></p>
+                            <p><span class="bold">Credits:</span> <%= course.credits %></p>
+                        </div>
+                        <p class="course_description"><%= course.description %></p>
+                    </div>
+                <% }) %>
+            <% } else {%>
+                <p>There are no courses to display.</p>
+            <% } %>
         </div>
     </div>
 </body>

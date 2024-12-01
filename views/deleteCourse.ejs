@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./components/head.ejs') %>
+<body>
+    <%- include('./components/nav.ejs') %>
+    
+    <div class="contain">
+        <h1 class="dashboard_title">Delete a Course</h1>
+        <div class="center">
+            <h1 class="delete_title">Are you sure you want to delete this course?</h1>
+            <p class="delete_subtitle"><%= course.title %></p>
+            <form class="form" action="/courses/delete" method="POST">
+                <input type="hidden" name="id" value="<%= course._id %>">
+                <div class="delete_actionContainer">
+                    <a href="/teachers" class="delete_back">Back to Dashboard</a>
+                    <button type="submit" class="delete_confirm">Delete Course</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
