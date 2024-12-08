@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    courses: {
+        type: Array
+    }
 }, { timestamps: true });
 
 // Hash Password before Saving
