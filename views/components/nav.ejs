@@ -10,8 +10,18 @@
             </h1>
         </div>
         <ul class="nav_links">
-            <li class="nav_item"><a href="/login" class="nav_link">Login</a></li>
-            <li class="nav_item"><a href="/register" class="nav_link nav_register">Register</a></li>
+            <% if (user) { %>
+                <li class="nav_item">Welcome, <%= user.firstname %> 👋</li>
+                <li class="nav_item"><a href="/logout" class="nav_link">Logout</a></li>
+                <% if (user.jobCode === 1) { %>
+                    <li class="nav_item"><a href="/students" class="nav_link nav_register">Dashboard</a></li>
+                <% } else if (user.jobCode === 2) { %>
+                    <li class="nav_item"><a href="/teachers" class="nav_link nav_register">Dashboard</a></li>
+                <% } %>
+            <% } else { %>
+                <li class="nav_item"><a href="/login" class="nav_link">Login</a></li>
+                <li class="nav_item"><a href="/register" class="nav_link nav_register">Register</a></li>
+            <% } %>
             <button class="nav_hamburger">
                 <i class="nav_menuIcon material-icons">menu</i>
                 <i class="nav_closeIcon material-icons">close</i>
@@ -21,8 +31,19 @@
 </nav>
 
 <ul class="nav_mobileLinks">
-    <li class="nav_mobileItem"><a href="/login" class="nav_mobileLink">Login</a></li>
-    <li class="nav_mobileItem"><a href="/register" class="nav_mobileLink nav_register">Register</a></li>
+    <% if (user) { %>
+        <li class="nav_mobileItem"><span class="nav_mobileLink">Welcome, <%= user.firstname %> 👋</span></li>
+        <li class="nav_mobileItem"><a href="/logout" class="nav_mobileLink">Logout</a></li>
+        <% if (user.jobCode === 1) { %>
+            <li class="nav_mobileItem"><a href="/students" class="nav_mobileLink nav_register">Dashboard</a></li>
+        <% } else if (user.jobCode === 2) { %>
+            <li class="nav_mobileItem"><a href="/teachers" class="nav_mobileLink nav_register">Dashboard</a></li>
+        <% } %>
+    <% } else { %>
+        <li class="nav_mobileItem"><a href="/login" class="nav_mobileLink">Login</a></li>
+        <li class="nav_mobileItem"><a href="/register" class="nav_mobileLink nav_register">Register</a></li>
+    <% } %>
+    
 </ul>
 
 <div class="nav_contentBreak"></div>

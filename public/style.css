@@ -288,12 +288,17 @@ nav {
     color: darkslategrey;
 }
 
-.homeTemp {
-    display: flex;
-    flex-direction: column;
-    gap: .25rem;
-    text-align: center;
-    margin-top: 1rem;
+.form_error {
+    color: #e74c3c;
+}
+
+.form_select {
+    padding: .5rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: gray;
 }
 
 /* Dashboards */
@@ -494,6 +499,10 @@ footer div p {
     .form {
         width: 95%;
     }
+
+    .loginForm {
+        width: 60%;
+    }
 }
 
 @media (max-width: 42rem) {
@@ -509,5 +518,9 @@ footer div p {
         padding: 3rem 1rem;
         text-align: center;
         gap: .25rem;
+    }
+
+    .loginForm {
+        width: 90%;
     }
 }

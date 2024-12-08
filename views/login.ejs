@@ -6,19 +6,59 @@
     
     <div class="contain">
         <div class="center">
-            <form action="" method="POST" class="loginForm">
+            <form class="loginForm">
                 <h2>Login</h2>
-                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="Email" name="email">
+                <p class="form_error" id="email"></p>
                 <input type="password" placeholder="Password" name="password">
+                <p class="form_error" id="password"></p>
                 <button type="submit">Login</button>
                 <a href="/register">Ready to Join? Register Here.</a>
             </form>
-            <div class="homeTemp">
-                <p>Temporary:</p>
-                <a href="/teachers">Teachers Dashboard</a>
-                <a href="/students">Students Dashboard</a>
-            </div>
         </div>
     </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const emailError = document.querySelector('#email');
+        const passwordError = document.querySelector('#password');
+    
+        form.addEventListener("submit", async e => {
+            e.preventDefault();
+    
+            emailError.innerHTML = '';
+            passwordError.innerHTML = '';
+    
+            const email = form.email.value;
+            const password = form.password.value;
+    
+            try {
+                const res = await fetch('/login', {
+                    method: 'POST',
+                    body: JSON.stringify({email, password}),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await res.json();
+                
+                if (data.errors) {
+                    emailError.innerHTML = data.errors.email;
+                    passwordError.innerHTML = data.errors.password;
+                }
+    
+                if (data.id) {
+                    if (data.jobCode === 1) {
+                        location.assign('/students');
+                    } else if (data.jobCode === 2) {
+                        location.assign('/teachers');
+                    } else {
+                        location.assign('/');
+                    }
+                }
+    
+            } catch (err) {
+                console.error(err);
+            }
+        });
+    </script>
 </body>
 </html>

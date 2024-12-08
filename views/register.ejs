@@ -8,12 +8,75 @@
         <div class="center">
             <form action="" method="POST" class="loginForm">
                 <h2>Register</h2>
-                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="First Name" name="firstname">
+                <p class="form_error" id="firstname"></p>
+                <input type="text" placeholder="Last Name" name="lastname">
+                <p class="form_error" id="lastname"></p>
+                <input type="text" placeholder="Email" name="email">
+                <p class="form_error" id="email"></p>
                 <input type="password" placeholder="Password" name="password">
+                <p class="form_error" id="password"></p>
+                <p>I am a:</p>
+                <select name="jobCode" class="form_select">
+                    <option value="1">Student</option>
+                    <option value="2">Teacher</option>
+                </select>
                 <button type="submit">Register</button>
                 <a href="/login">Already a Student? Login.</a>
             </form>
         </div>
     </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const firstnameError = document.querySelector('#firstname');
+        const lastnameError = document.querySelector('#lastname');
+        const emailError = document.querySelector('#email');
+        const passwordError = document.querySelector('#password');
+    
+        form.addEventListener("submit", async e => {
+            e.preventDefault();
+    
+            firstnameError.innerHTML = '';
+            lastnameError.innerHTML = '';
+            emailError.innerHTML = '';
+            passwordError.innerHTML = '';
+    
+            const firstname = form.firstname.value;
+            const lastname = form.lastname.value;
+            const email = form.email.value;
+            const password = form.password.value;
+            const jobCode = parseInt(form.jobCode.value);
+    
+            try {
+                const res = await fetch('/register', {
+                    method: 'POST',
+                    body: JSON.stringify({firstname, lastname, email, password, jobCode}),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await res.json();
+                
+                if (data.errors) {
+                    firstnameError.innerHTML = data.errors.firstname;
+                    lastnameError.innerHTML = data.errors.lastname;
+                    emailError.innerHTML = data.errors.email;
+                    passwordError.innerHTML = data.errors.password;
+                }
+    
+                if (data.id) {
+                    if (data.jobCode === 1) {
+                        location.assign('/students');
+                    } else if (data.jobCode === 2) {
+                        location.assign('/teachers');
+                    } else {
+                        location.assign('/');
+                    }
+                }
+    
+            } catch (err) {
+                console.error(err);
+            }
+        });
+    </script>
 </body>
 </html>
