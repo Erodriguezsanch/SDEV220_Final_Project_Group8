@@ -6,6 +6,7 @@ module.exports.add_get = (req, res) => {
     res.render('addCourse', {title: "Add a Course"});
 }
 
+// Add Course ID to creating teacher
 module.exports.add_post = (req, res) => {
     const course = new Course(req.body);
 
