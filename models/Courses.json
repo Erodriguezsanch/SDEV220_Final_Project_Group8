@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Math 101",
+        "code": "MTH101",
+        "credits": 3,
+        "description": "Introduction to basic mathematical concepts and problem-solving techniques."
+    },
+    {
+        "title": "English Literature",
+        "code": "ENG201",
+        "credits": 4,
+        "description": "Study of classic and modern works of English literature."
+    },
+    {
+        "title": "Computer Science",
+        "code": "CSC110",
+        "credits": 3,
+        "description": "Fundamentals of computer programming and software development."
+    },
+    {
+        "title": "Biology 101",
+        "code": "BIO101",
+        "credits": 3,
+        "description": "Exploration of foundational concepts in biology, including cell structure and genetics."
+    },
+    {
+        "title": "Physics 201",
+        "code": "PHY201",
+        "credits": 4,
+        "description": "Advanced study of physics with a focus on mechanics and thermodynamics."
+    },
+    {
+        "title": "History of Art",
+        "code": "ART305",
+        "credits": 3,
+        "description": "A survey of major art movements and influential works throughout history."
+    },
+    {
+        "title": "Introduction to Psychology",
+        "code": "PSY101",
+        "credits": 3,
+        "description": "Study of human behavior, mental processes, and foundational psychological theories."
+    },
+    {
+        "title": "Environmental Science",
+        "code": "ENV150",
+        "credits": 3,
+        "description": "Overview of environmental challenges and sustainable solutions."
+    },
+    {
+        "title": "Business Management",
+        "code": "BUS200",
+        "credits": 4,
+        "description": "Principles and practices of managing business operations and resources."
+    },
+    {
+        "title": "Creative Writing",
+        "code": "CWR310",
+        "credits": 3,
+        "description": "Workshops focused on developing creative writing skills in fiction, poetry, and non-fiction."
+    }
+]
