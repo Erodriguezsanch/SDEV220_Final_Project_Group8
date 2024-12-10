@@ -7,7 +7,8 @@
     <div class="contain">
         <h1 class="dashboard_title">Student Dashboard</h1>
         <div class="dashboard_header">
-            <h2 class="header_title">Courses</h2>
+            <h2 class="header_title">Available Courses</h2>
+            <a href="/cart" class="header_button center">Cart (<%= cartSize %>)</a>
         </div>
         <div class="dashboard_courseContainer">
             <% if (courses.length > 0) { %>
@@ -19,10 +20,36 @@
                             <p><span class="bold">Credits:</span> <%= course.credits %></p>
                         </div>
                         <p class="course_description"><%= course.description %></p>
+                        <div class="course_actions">
+                            <a href="/cart/add/<%= course._id %>" class="action_button button_update">Add to Cart</a>
+                        </div>
                     </div>
                 <% }) %>
             <% } else {%>
-                <p>There are no courses to display.</p>
+                <p>There are no available courses. <br>Check your cart for any unenrolled courses.</p>
+            <% } %>
+        </div>
+        <br>
+        <div class="dashboard_header">
+            <h2 class="header_title">Enrolled Courses</h2>
+        </div>
+        <div class="dashboard_courseContainer">
+            <% if (enrolledCourses.length > 0) { %>
+                <% enrolledCourses.forEach(course => { %>
+                    <div class="courseContainer_course">
+                        <h3 class="course_title"><%= course.title %></h3>
+                        <div class="course_details">
+                            <p><span class="bold">Code:</span> <%= course.code %></p>
+                            <p><span class="bold">Credits:</span> <%= course.credits %></p>
+                        </div>
+                        <p class="course_description"><%= course.description %></p>
+                        <div class="course_actions">
+                            <a href="/course/drop/<%= course._id %>" class="action_button button_delete">Drop Class</a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else {%>
+                <p>You are not enrolled in any courses.</p>
             <% } %>
         </div>
     </div>

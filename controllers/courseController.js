@@ -1,18 +1,39 @@
+// NPM Imports
+const jwt = require("jsonwebtoken");
+
 // DB Imports
 const Course = require("../models/Course");
+const User = require("../models/User");
+
+// Helper Functions
+const fetchUserId = token => {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, 'IvyTechAuthenticationWithJWT', async (err, decodedToken) => {
+            if (err) {
+                reject("No user found.");
+            } else {
+                let user = await User.findById(decodedToken.id);
+                resolve(user);
+            }
+        });
+    });
+}
 
 // Course Routes
 module.exports.add_get = (req, res) => {
     res.render('addCourse', {title: "Add a Course"});
 }
 
-// Add Course ID to creating teacher
-module.exports.add_post = (req, res) => {
-    const course = new Course(req.body);
+module.exports.add_post = async (req, res) => {
+    const userId = await fetchUserId(req.cookies.jwt);
 
-    course.save()
-        .then(() => res.redirect('/teachers'))
-        .catch(err => console.error(err));
+    const course = await Course.create(req.body);
+
+    await User.findByIdAndUpdate(userId, {
+        $push: { "courses": course._id }
+    });
+    
+    res.redirect('/teachers');
 }
 
 module.exports.update_get = async (req, res) => {

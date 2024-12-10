@@ -1,5 +1,7 @@
 // NPM Imports
 const { Router } = require("express");
+
+// Project Imports
 const courseController = require("../controllers/courseController");
 
 // Create Express Router

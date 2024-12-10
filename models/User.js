@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
     },
     courses: {
         type: Array
+    },
+    cart: {
+        type: Array
     }
 }, { timestamps: true });
 
